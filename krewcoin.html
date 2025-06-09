@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krew Coin - ICO & NFT Presale</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00d4ff, #9945ff, #14f195);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .wallet-btn {
+            background: linear-gradient(45deg, #9945ff, #14f195);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .wallet-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px; /* Adjusted padding to account for fixed header */
+            margin-top: 80px; /* Add margin-top to push content below fixed header */
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(153, 69, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-logo {
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #00d4ff, #9945ff, #14f195);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 30px rgba(153, 69, 255, 0.7)); }
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        .hero .btn-secondary {
+            background: transparent;
+            border: 2px solid #14f195;
+            padding: 13px 28px; /* Adjusted padding to match primary but keep border visible */
+            border-radius: 25px;
+            color: #14f195;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-left: 15px; /* Spacing from primary button */
+            transition: all 0.3s;
+            text-decoration: none; /* For anchor tags styled as buttons */
+            display: inline-block; /* For anchor tags */
+        }
+        .hero .btn-secondary:hover {
+            background: #14f195;
+            color: #0f0f23; /* Dark background color for text contrast */
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(20, 241, 149, 0.3);
+        }
+
+
+        /* Presale Section */
+        .presale {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .presale-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .presale-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+         .presale-info p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+
+        .presale-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #14f195;
+        }
+
+        .presale-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+         .presale-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #00d4ff;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.2);
+            height: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(45deg, #9945ff, #14f195);
+            height: 100%;
+            width: 45%; /* Example progress */
+            border-radius: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .input-group {
+            margin: 20px 0;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #00d4ff;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+        }
+         .input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #9945ff, #14f195);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s;
+            text-decoration: none; /* For anchor tags styled as buttons */
+            display: inline-block; /* For anchor tags */
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(153, 69, 255, 0.4);
+        }
+
+        /* NFT Section */
+        .nft-section {
+            padding: 80px 0;
+        }
+        .nft-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #00d4ff;
+        }
+
+        .nft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjusted minmax for better spacing */
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .nft-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+        }
+
+        .nft-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Enhanced hover effect */
+        }
+
+        .nft-image {
+            height: 250px; /* Increased height */
+            background: linear-gradient(45deg, #9945ff, #00d4ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            /* Using a placeholder image for demonstration */
+            background-image: url('https://placehold.co/600x400/1a1a2e/ffffff?text=Krew+NFT');
+            background-size: cover;
+            background-position: center;
+        }
+         .nft-image-placeholder { /* Style for the text if image fails to load */
+            font-size: 2rem;
+            font-weight: bold;
+         }
+
+
+        .nft-info {
+            padding: 20px;
+        }
+        .nft-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        .nft-info p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+
+        .nft-price {
+            color: #14f195;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Tokenomics */
+        .tokenomics {
+            padding: 80px 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        .tokenomics h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px; /* Adjusted margin */
+            color: #00d4ff;
+        }
+         .tokenomics .section-subtitle { /* New class for subtitle */
+            text-align: center;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            margin: 0 auto 40px auto;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+
+        .tokenomics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjusted minmax */
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .token-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2); /* Added border */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .token-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .token-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+        .token-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+
+        .token-percentage {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #14f195;
+            margin-bottom: 10px; /* Added margin */
+        }
+        .tokenomics-footer { /* For whitepaper button */
+            text-align: center;
+            margin-top: 50px;
+        }
+
+
+        /* Roadmap */
+        .roadmap {
+            padding: 80px 0;
+        }
+        .roadmap h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #00d4ff;
+        }
+
+        .roadmap-timeline {
+            margin-top: 40px;
+            position: relative; /* For timeline pseudo-element */
+            padding: 20px 0;
+        }
+        /* Optional: Add a central line for the timeline */
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+
+        .roadmap-item {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: flex-start; /* Align items to the start for better layout with varying content height */
+            position: relative; /* For connecting dot */
+            width: 50%; /* Each item takes half width */
+        }
+
+        /* Alternate roadmap items left and right */
+        .roadmap-item:nth-child(odd) {
+            padding-right: 50px; /* Space from center line */
+            justify-content: flex-end; /* Align content to the right */
+            text-align: right;
+        }
+        .roadmap-item:nth-child(even) {
+            margin-left: 50%; /* Push to the right side */
+            padding-left: 50px; /* Space from center line */
+        }
+         /* Connecting dot to timeline */
+        .roadmap-item::after {
+            content: '';
+            position: absolute;
+            top: 15px; /* Align with roadmap-date center */
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: #14f195;
+            border: 3px solid #0f0f23; /* Match body background for seamless look */
+            z-index: 1;
+        }
+        .roadmap-item:nth-child(odd)::after {
+            right: -8px; /* Position on the center line */
+            transform: translateX(50%);
+        }
+         .roadmap-item:nth-child(even)::after {
+            left: -8px; /* Position on the center line */
+            transform: translateX(-50%);
+        }
+
+
+        .roadmap-date {
+            background: linear-gradient(45deg, #9945ff, #14f195);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            min-width: 120px;
+            text-align: center;
+            flex-shrink: 0; /* Prevent shrinking */
+        }
+        .roadmap-item:nth-child(odd) .roadmap-date {
+            order: 1; /* Date appears after content for odd items */
+            margin-left: 30px;
+            margin-right: 0;
+        }
+        .roadmap-item:nth-child(even) .roadmap-date {
+             margin-right: 30px; /* Original margin */
+        }
+
+
+        .roadmap-content {
+            background: rgba(255, 255, 255, 0.05); /* Slight background for content */
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            flex: 1;
+        }
+        .roadmap-item:nth-child(odd) .roadmap-content {
+            /* margin-right: 30px; Removed, handled by padding on roadmap-item */
+        }
+        .roadmap-item:nth-child(even) .roadmap-content {
+            /* margin-left: 30px; Removed, handled by padding on roadmap-item */
+        }
+        .roadmap-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #00d4ff;
+        }
+        .roadmap-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .roadmap-content ul li {
+            margin-bottom: 8px;
+            opacity: 0.9;
+            position: relative;
+            padding-left: 20px;
+        }
+        .roadmap-content ul li::before {
+            content: '✓'; /* Checkmark or other icon */
+            color: #14f195;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px 0;
+            text-align: center;
+        }
+        footer p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s, transform 0.3s; /* Added transform */
+        }
+
+        .social-links a:hover {
+            color: #00d4ff;
+            transform: translateY(-3px); /* Slight lift on hover */
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) { /* Adjusted breakpoint for better tablet layout */
+            .presale-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .roadmap-timeline::before {
+                left: 20px; /* Move timeline line to the left */
+            }
+            .roadmap-item, .roadmap-item:nth-child(even) {
+                width: 100%;
+                padding-left: 50px; /* Consistent padding from the left line */
+                padding-right: 0;
+                margin-left: 0;
+                text-align: left; /* Align all text to left */
+            }
+            .roadmap-item:nth-child(odd) {
+                 justify-content: flex-start;
+                 text-align: left;
+                 padding-right: 0;
+            }
+            .roadmap-item::after, .roadmap-item:nth-child(odd)::after, .roadmap-item:nth-child(even)::after {
+                left: 12px; /* Align dot with the new line position */
+                transform: translateX(0);
+            }
+            .roadmap-item:nth-child(odd) .roadmap-date {
+                order: 0; /* Date before content */
+                margin-left: 0;
+                margin-right: 20px;
+            }
+             .roadmap-item:nth-child(even) .roadmap-date {
+                margin-right: 20px;
+            }
+            .hero .btn-primary, .hero .btn-secondary {
+                display: block; /* Stack buttons on smaller screens */
+                margin-left: auto; /* Center block buttons */
+                margin-right: auto;
+                width: fit-content; /* Adjust width to content */
+                max-width: 90%; /* Ensure buttons don't overflow on very small screens */
+                margin-bottom: 10px;
+            }
+            .hero .btn-secondary {
+                margin-left: auto; /* Ensure it's also centered */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none; /* Simple hide for mobile, can be replaced with a burger menu */
+            }
+             nav .container { /* Ensure nav content aligns properly on mobile */
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .logo-text {
+                font-size: 1.3rem; /* Slightly smaller logo text */
+            }
+            .wallet-btn {
+                padding: 8px 15px; /* Smaller wallet button */
+                font-size: 0.9rem;
+            }
+            .presale-stats {
+                grid-template-columns: 1fr;
+            }
+            .hero-logo svg {
+                width: 200px;
+                height: 200px;
+            }
+            .tokenomics-grid {
+                grid-template-columns: 1fr; /* Stack token cards on smaller screens */
+            }
+            .input-group {
+                margin: 15px 0;
+            }
+            .btn-primary {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            .presale-card {
+                padding: 30px;
+            }
+            .nft-grid {
+                grid-template-columns: 1fr; /* Stack NFT cards */
+            }
+            .nft-card {
+                 margin-bottom: 20px; /* Add some space between stacked NFT cards */
+            }
+            .roadmap-date {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+                min-width: 100px;
+            }
+            .roadmap-content h3 {
+                font-size: 1.1rem;
+            }
+            .roadmap-content ul li {
+                font-size: 0.9rem;
+            }
+
+        }
+        @media (max-width: 480px) { /* More specific mobile styles */
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .presale-info h2, .nft-section h2, .tokenomics h2, .roadmap h2 {
+                font-size: 2rem;
+            }
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            .token-percentage {
+                font-size: 2rem;
+            }
+            .presale-card h3 {
+                font-size: 1.5rem;
+            }
+            .input-group input, .input-group select {
+                padding: 12px;
+                font-size: 0.9rem;
+            }
+            .btn-primary, .hero .btn-secondary {
+                font-size: 0.9rem;
+                padding: 12px 20px;
+            }
+            .modal-content {
+                margin: 5% auto;
+                padding: 20px;
+            }
+            .modal-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+
+        /* Modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.8); /* Darker backdrop */
+            backdrop-filter: blur(5px); /* Blur background */
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            margin: 10% auto; /* Vertically centered with more top margin */
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative; /* For close button positioning */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            color: #aaa;
+            position: absolute; /* Position relative to modal-content */
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus { /* Added focus for accessibility */
+            color: white;
+            text-decoration: none;
+        }
+        .modal-content h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+        .modal-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .modal-content .btn-primary {
+            width: auto; /* Adjust button width in modal */
+            padding: 12px 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+           <div class="logo">
+                <img src="IMG_1779.jpg" alt="Krew Coin Logo" style="width: 50px; height: 50px;">
+                <span class="logo-text">KREW COIN</span>
+                        </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#presale">Presale</a></li>
+                <li><a href="#nft">NFTs</a></li>
+                <li><a href="#tokenomics">Tokenomics</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+            </ul>
+            <button class="wallet-btn" id="connectWalletBtn">Connect Wallet</button>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container">
+           <div class="hero-logo">
+                <img src="IMG_1779.jpg" alt="Krew Coin Hero Logo" style="width: 300px; height: 300px;">
+                        </div>
+            <h1>KREW COIN</h1>
+            <p>Join the ultimate Solana-based gaming experience where players stake NFTs, form krews, and earn $KREW rewards through community-driven trading and governance.</p>
+            <button class="btn-primary" id="joinPresaleBtnHero">Join Presale Now</button>
+            <a href="https://docs.google.com/document/d/1qxeX1vOZCY3KWnXCxAeEutZlOzCv8vWB/edit?usp=drivesdk&ouid=114860127432013529427&rtpof=true&sd=true" target="_blank" class="btn-secondary" id="readWhitepaperBtnHero">Read Whitepaper</a>
+        </div>
+    </section>
+
+    <section class="presale" id="presale">
+        <div class="container">
+            <div class="presale-grid">
+                <div class="presale-info">
+                    <h2>ICO Presale Live</h2>
+                    <p>Be among the first to join the Krew! Our presale offers exclusive pricing and early access to the Krew Coin ecosystem. Secure your $KREW tokens now and become a foundational member of our growing community.</p>
+                    <div class="presale-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">$2.1M</div>
+                            <div>Raised (Example)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">5%</div>
+                            <div>Public Sale Allocation</div>
+                        </div>
+                         <div class="stat-card">
+                            <div class="stat-number">1 KREW</div>
+                            <div>= 0.05 SOL (Example)</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">15d 10h</div>
+                            <div>Ends In (Example)</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="presale-card">
+                    <h3>Buy $KREW Tokens</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 42%;"></div> </div>
+                    <p style="text-align: center; margin-bottom: 20px;">42% of target raised (Example)</p>
+                    <div class="input-group">
+                        <label for="solAmount">Amount in SOL you pay</label>
+                        <input type="number" id="solAmount" placeholder="Enter SOL amount" oninput="calculateKrew()">
+                    </div>
+                    <div class="input-group">
+                        <label for="krewAmount">Amount in $KREW you receive</label>
+                        <input type="number" id="krewAmount" placeholder="KREW amount" readonly>
+                    </div>
+                     <div class="input-group">
+                        <label for="paymentCurrency">Pay With</label>
+                        <select id="paymentCurrency">
+                            <option value="sol">SOL (Solana)</option>
+                            <option value="usdc">USDC (SPL)</option>
+                            <option value="usdt">USDT (SPL)</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="buyNowBtn">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nft-section" id="nft">
+        <div class="container">
+            <h2>Exclusive Krew NFTs</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto; opacity: 0.9;">
+                Unlock unique in-game advantages and membership tiers with our limited-edition Krew NFTs. There are 10,000 NFTs across 5 Krews, priced between .01-10 SOL. Staking NFTs is mandatory for Krew membership and game participation.
+            </p>
+            <div class="nft-grid">
+                <div class="nft-card">
+                    <div class="nft-image" style= background-image: url("C:\Users\Rosey Duncan\Downloads\Gemini_Generated_Image_qccujnqccujnqccu.jpg");"" alt="A cool image I downloaded"> 
+                         <span class="nft-image-placeholder" role="img" aria-label="Genesis "></span>
+                    </div>
+                    <div class="nft-info">
+                        <h3>KREW GENESIS</h3>
+                        <p>Tier 1.GM.GM.LFG!. Join the Genesis Krew today and discover how simple and rewarding it can be to be part of something truly innovative.  t</p>
+                        <div class="nft-price">Price: 0.1 sol</div>
+                        <button class="btn-primary" style="margin-top: 15px; font-size: 1rem; padding: 10px 20px;" onclick="showMintModal('Genesis Krew Member', 'Est. .01sol')">Mint NFT</button>
+                    </div>
+                </div>
+                <div class="nft-card">
+                    <div class="nft-image" style="background-image: url('"');" title="Krew Captain NFT">
+                        <span class="nft-image-placeholder" role="img" aria-label="Krew Captain NFT Placeholder"></span>
+                    </div>
+                    <div class="nft-info">
+                        <h3>Krew Captain</h3>
+                        <p>Tier 2 NFT. Includes all Genesis perks plus increased staking rewards and voting power in KrewDAO.</p>
+                        <div class="nft-price">Price: Est. 250 $KREW</div>
+                        <button class="btn-primary" style="margin-top: 15px; font-size: 1rem; padding: 10px 20px;" onclick="showMintModal('Krew Captain', 'Est. 250 $KREW')">Mint NFT</button>
+                    </div>
+                </div>
+                <div class="nft-card">
+                     <div class="nft-image" style="background-image: url('https://placehold.co/600x400/14f195/0f0f23?text=Krew+Admiral');" title="Krew Admiral NFT">
+                        <span class="nft-image-placeholder" role="img" aria-label="Krew Admiral NFT Placeholder"></span>
+                    </div>
+                    <div class="nft-info">
+                        <h3>Krew Admiral</h3>
+                        <p>Tier 3 NFT. The ultimate status. All Captain perks, plus a share of platform fees and exclusive event invites.</p>
+                        <div class="nft-price">Price: Est. 500 $KREW</div>
+                        <button class="btn-primary" style="margin-top: 15px; font-size: 1rem; padding: 10px 20px;" onclick="showMintModal('Krew Admiral', 'Est. 500 $KREW')">Mint NFT</button>
+                    </div>
+                </div>
+                 <div class="nft-card">
+                     <div class="nft-image" style="background-image: url('https://placehold.co/600x400/14f195/0f0f23?text=Krew+Admiral');" title="Krew Admiral NFT">
+                        <span class="nft-image-placeholder" role="img" aria-label="Krew Admiral NFT Placeholder"></span>
+                    </div>
+                    <div class="nft-info">
+                        <h3>Krew Admiral</h3>
+                        <p>Tier 3 NFT. The ultimate status. All Captain perks, plus a share of platform fees and exclusive event invites.</p>
+                        <div class="nft-price">Price: Est. 500 $KREW</div>
+                        <button class="btn-primary" style="margin-top: 15px; font-size: 1rem; padding: 10px 20px;" onclick="showMintModal('Krew Admiral', 'Est. 500 $KREW')">Mint NFT</button>
+            </div>
+             </div>
+                 <div class="nft-card">
+                     <div class="nft-image" style="background-image: url('https://placehold.co/600x400/14f195/0f0f23?text=Krew+Admiral');" title="Krew Admiral NFT">
+                        <span class="nft-image-placeholder" role="img" aria-label="Krew Admiral NFT Placeholder"></span>
+                    </div>
+                    <div class="nft-info">
+                        <h3>Krew Admiral</h3>
+                        <p>Tier 3 NFT. The ultimate status. All Captain perks, plus a share of platform fees and exclusive event invites.</p>
+                        <div class="nft-price">Price: Est. 500 $KREW</div>
+                        <button class="btn-primary" style="margin-top: 15px; font-size: 1rem; padding: 10px 20px;" onclick="showMintModal('Krew Admiral', 'Est. 500 $KREW')">Mint NFT</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="tokenomics" id="tokenomics">
+        <div class="container">
+            <h2>$KREW Tokenomics</h2>
+            <p class="section-subtitle">
+                The $KREW token has a total supply of 1 billion. Its utility includes buying NFTs, voting, investing, and earning rewards. The $pKrew tokens are LP tokens earned by treasuries for staking and are used to seed liquidity for new coins.
+            </p>
+            <div class="tokenomics-grid">
+                <div class="token-card">
+                    <div class="token-percentage">35%</div>
+                    <h3>Rewards</h3>
+                    <p>Incentivizing player engagement and performance.</p>
+                </div>
+                <div class="token-card">
+                    <div class="token-percentage">20%</div>
+                    <h3>Liquidity (Locked)</h3>
+                    <p>Ensuring market stability and DEX integration.</p>
+                </div>
+                <div class="token-card">
+                    <div class="token-percentage">15%</div>
+                    <h3>Krew Treasuries</h3>
+                    <p>Funding for Krew-specific activities and new coin LPs.</p>
+                </div>
+                <div class="token-card">
+                    <div class="token-percentage">15%</div>
+                    <h3>Team (Vested)</h3>
+                    <p>For long-term alignment and project development.</p>
+                </div>
+                 <div class="token-card">
+                    <div class="token-percentage">10%</div>
+                    <h3>Marketing</h3>
+                    <p>Expanding Krew Coin's reach and community growth.</p>
+                </div>
+                 <div class="token-card">
+                    <div class="token-percentage">5%</div>
+                    <h3>Public Sale</h3>
+                    <p>Initial token distribution event.</p>
+                </div>
+            </div>
+            <div class="tokenomics-footer">
+                <a href="https://docs.google.com/document/d/1B3gDe_J6q8tTLDivY8R97kKKV-j6GfY8vR_do_HcyCI/edit?usp=sharing" target="_blank" class="btn-primary" id="readWhitepaperBtnTokenomics" style="width:auto; padding-left: 40px; padding-right: 40px;">Read Full Whitepaper</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="roadmap" id="roadmap">
+        <div class="container">
+            <h2>Our Roadmap</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px auto; opacity: 0.9;">
+                Follow our journey as we build the Krew Coin universe. Key milestones and future developments are outlined below, based on our whitepaper v1.1.
+            </p>
+            <div class="roadmap-timeline">
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Q2 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 1: Foundation</h3>
+                        <ul>
+                            <li>Develop $KREW, NFT minting/staking, krew formation, treasury mechanics.</li>
+                            <li>Finalize 5 NFT krew designs.</li>
+                            <li>Release White Paper V1.1, launch website, Discord, Twitter.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Q3 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 2: Pre-Launch</h3>
+                        <ul>
+                            <li>Complete smart contracts for coin minting, $pKrew, liquidity locking.</li>
+                            <li>Audit contracts, test on Solana Testnet with 1,000 beta testers.</li>
+                            <li>Develop Krew Dashboard UI.</li>
+                            <li>Expand marketing, explore launchpad partnerships.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Q4 2025</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 3: Launch</h3>
+                        <ul>
+                            <li>Deploy to Solana Mainnet, $KREW TGE, initial liquidity on Raydium.</li>
+                            <li>Conduct NFT sale, enable staking.</li>
+                            <li>Activate treasury funding, $pKrew earning, coin minting, LP creation.</li>
+                            <li>Boost community growth and support.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-date">Q1 2026</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 4: Expansion</h3>
+                        <ul>
+                            <li>Enhance dashboard, voting, NFT options.</li>
+                            <li>Monitor minted coins, expand DEX integrations.</li>
+                            <li>Strengthen marketing and partnerships.</li>
+                        </ul>
+                    </div>
+                </div>
+                 <div class="roadmap-item">
+                    <div class="roadmap-date">Q2 2026+</div>
+                    <div class="roadmap-content">
+                        <h3>Phase 5: Scaling</h3>
+                        <ul>
+                            <li>Develop mobile interface, explore Solana scaling.</li>
+                            <li>Research cross-chain bridges.</li>
+                            <li>Transition to DAO governance, add krew competitions, expand NFT utility.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="justify-content: center; margin-bottom: 20px;">
+                 <svg width="40" height="40" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="150" cy="150" r="145" fill="url(#bgGradient)"/>
+                    <g>
+                        <animateTransform attributeName="transform" type="rotate"
+                                          values="0 150 150;360 150 150" dur="20s" repeatCount="indefinite"/>
+                        <circle cx="150" cy="150" r="130" fill="none" stroke="url(#outerRing)"
+                                stroke-width="3" opacity="0.8" stroke-dasharray="10 5"/>
+                    </g>
+                    <g transform="translate(150,150)" filter="url(#glowFilterNav)">
+                        <g fill="url(#kGradient)" stroke="url(#kInnerGradient)" stroke-width="1">
+                            <rect x="-25" y="-40" width="8" height="80" rx="4"/>
+                            <path d="M -17 -12 L 20 -40 L 25 -35 L -12 -7 Z" opacity="0.95"/>
+                            <path d="M -17 12 L 20 40 L 25 35 L -12 7 Z" opacity="0.95"/>
+                            <circle cx="-13" cy="0" r="6" opacity="0.9"/>
+                        </g>
+                    </g>
+                </svg>
+                <span class="logo-text" style="font-size: 1.2rem;">KREW COIN</span>
+            </div>
+            <p>&copy; 2025 Krew Coin. All rights reserved. The future of trading on Solana.</p>
+            <p>
+                <a href="#privacy" style="color: #00d4ff; text-decoration: none; margin: 0 10px;">Privacy Policy</a> |
+                <a href="#terms" style="color: #00d4ff; text-decoration: none; margin: 0 10px;">Terms of Service</a> |
+                <a href="mailto:admin@krewkoin.fun" style="color: #00d4ff; text-decoration: none; margin: 0 10px;">Admin@krewkoin.fun</a>
+            </p>
+            <div class="social-links">
+                <a href="https://twitter.com/krewcoin" target="_blank" aria-label="Krew Coin on Twitter" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                <a href="https://discord.gg/krewcoin" target="_blank" aria-label="Krew Coin on Discord" title="Discord"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M19.54 0c1.356 0 2.46 1.104 2.46 2.472v19.056c0 1.368-1.104 2.472-2.46 2.472h-15.08c-1.356 0-2.46-1.104-2.46-2.472v-19.056c0-1.368 1.104-2.472 2.46-2.472h15.08zm-4.632 15.672c2.652-.024 3.324-1.536 3.324-1.536 0-3.528-1.896-6.336-1.896-6.336-1.896-1.176-3.6-1.152-3.6-1.152-.108 1.284-.792 3.156-1.944 4.416-1.428-.564-2.424-1.14-3.072-1.584-.552-.384-1.032-.744-1.392-1.044-.408-.324-.72-.588-.936-.792-.228-.204-.384-.348-.456-.444-.072-.096-.108-.144-.108-.144s-.648.984-2.94 2.184c0 0 .408.816.984 1.536.576.72 1.344 1.392 2.208 1.956.84.54 1.704.984 2.592 1.308 1.152.42 2.244.648 3.216.648zm2.016-6.024c-.648 0-1.176-.528-1.176-1.176s.528-1.176 1.176-1.176c.648 0 1.176.528 1.176 1.176s-.528 1.176-1.176 1.176zm-6.48 0c-.648 0-1.176-.528-1.176-1.176s.528-1.176 1.176-1.176c.648 0 1.176.528 1.176 1.176s-.528 1.176-1.176 1.176z"/></svg></a>
+                <a href="https://t.me/krewcoin" target="_blank" aria-label="Krew Coin on Telegram" title="Telegram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.075.036.203.034.284-.002.085-.002.144-.002.144L16.225 16.1c-.09.752-.347 1.02-.732 1.044-.546.034-.91-.31-1.317-.602-.973-.713-1.525-1.16-2.49-1.84-.99-.702-.363-1.08.243-1.723.17-.18.996-.92 1.03-1.003.032-.088.06-.197.028-.31-.032-.112-.102-.154-.206-.158-.12-.004-1.002.301-2.804 1.257-.51.27-.96.402-1.38.402-.492 0-.99-.139-1.379-.392-.45-.29-.86-.697-.81-.823.032-.086.267-.312 2.46-1.278 1.756-.773 2.914-1.27 3.726-1.272.02 0 .037 0 .056.002z"/></svg></a>
+                <a href="https://medium.com/@krewcoin" target="_blank" aria-label="Krew Coin on Medium" title="Medium"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M7.061 2.832c.098-.095.213-.168.338-.217.126-.049.259-.072.393-.068.279.008.548.118.747.313l5.465 5.34c.19.196.293.463.293.738s-.103.542-.293.738l-5.465 5.34a1.073 1.073 0 0 1-1.51-.022 1.028 1.028 0 0 1-.023-1.483l4.716-4.575-4.716-4.575a1.028 1.028 0 0 1 .023-1.483zm6.139 0c.098-.095.213-.168.338-.217.126-.049.259-.072.393-.068.279.008.548.118.747.313l5.465 5.34c.19.196.293.463.293.738s-.103.542-.293.738l-5.465 5.34a1.073 1.073 0 0 1-1.51-.022 1.028 1.028 0 0 1-.023-1.483l4.716-4.575-4.716-4.575a1.028 1.028 0 0 1 .023-1.483zM2.009 8.191c-.095.218-.135.453-.115.69.02.237.102.462.239.658l2.452 3.487c.167.244.406.43.682.536.276.106.578.124.872.05.307-.077.584-.244.794-.475l.787-.867a.63.63 0 0 0 .015-.888.657.657 0 0 0-.908-.014l-.787.867c-.095.105-.213.175-.343.197-.13.022-.26-.003-.37-.068a.497.497 0 0 1-.26-.236L2.51 8.733a.655.655 0 0 0-.14-.31.627.627 0 0 0-.361-.132z"/></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="walletModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModalBtn">&times;</span>
+            <h2 id="modalTitle">Connect Your Wallet</h2>
+            <p id="modalMessage">Please connect your Solana wallet (e.g., Phantom, Solflare) to proceed with the token purchase or NFT minting.</p>
+            <div id="modalActionButtons">
+                 <button class="btn-primary" style="margin: 5px;" onclick="simulateConnection('Phantom')">Connect Phantom</button>
+                 <button class="btn-primary" style="margin: 5px;" onclick="simulateConnection('Solflare')">Connect Solflare</button>
+            </div>
+            <p id="mintDetails" style="display:none; margin-top: 20px;"></p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Scroll to presale section function
+        function scrollToPresale() {
+            document.getElementById('presale').scrollIntoView({ behavior: 'smooth' });
+        }
+        // Attach to hero button
+        const joinPresaleBtnHero = document.getElementById('joinPresaleBtnHero');
+        if(joinPresaleBtnHero) {
+            joinPresaleBtnHero.addEventListener('click', scrollToPresale);
+        }
+
+
+        // Modal elements
+        const walletModal = document.getElementById('walletModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const connectWalletBtn = document.getElementById('connectWalletBtn');
+        const buyNowBtn = document.getElementById('buyNowBtn'); // Presale buy button
+        const modalTitle = document.getElementById('modalTitle');
+        const modalMessage = document.getElementById('modalMessage');
+        const mintDetails = document.getElementById('mintDetails');
+        const modalActionButtons = document.getElementById('modalActionButtons');
+
+
+        // Function to open modal
+        function openModal(title, message, showMintInfo = false, nftName = '', nftPrice = '') {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            if (showMintInfo) {
+                mintDetails.innerHTML = `You are about to mint: <strong>${nftName}</strong> for <strong>${nftPrice}</strong>.`;
+                mintDetails.style.display = 'block';
+                // Update action buttons for minting
+                modalActionButtons.innerHTML = `<button class="btn-primary" onclick="simulateMint('${nftName}')">Confirm Mint</button>`;
+            } else {
+                mintDetails.style.display = 'none';
+                // Restore default connect wallet buttons
+                modalActionButtons.innerHTML = `
+                    <button class="btn-primary" style="margin: 5px;" onclick="simulateConnection('Phantom')">Connect Phantom</button>
+                    <button class="btn-primary" style="margin: 5px;" onclick="simulateConnection('Solflare')">Connect Solflare</button>`;
+            }
+            walletModal.style.display = 'block';
+        }
+
+        // Function to close modal
+        function closeModal() {
+            walletModal.style.display = 'none';
+        }
+
+        // Event listeners for modal
+        if (connectWalletBtn) {
+            connectWalletBtn.onclick = () => openModal('Connect Your Wallet', 'Please connect your Solana wallet (e.g., Phantom, Solflare) to interact with Krew Coin.');
+        }
+        if (buyNowBtn) {
+             buyNowBtn.onclick = () => openModal('Confirm Purchase', 'Please connect your wallet to complete the $KREW token purchase.');
+        }
+
+        if (closeModalBtn) {
+            closeModalBtn.onclick = closeModal;
+        }
+
+        // Close modal if user clicks outside of it
+        window.onclick = function(event) {
+            if (event.target == walletModal) {
+                closeModal();
+            }
+        }
+         // Close modal with Escape key
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && walletModal.style.display === 'block') {
+                closeModal();
+            }
+        });
+
+
+        // Simulate wallet connection
+        function simulateConnection(walletName = 'wallet') {
+            modalMessage.textContent = `Attempting to connect with ${walletName}...`;
+            setTimeout(() => {
+                // Simulate success or failure
+                const success = Math.random() > 0.2; // 80% success rate
+                if (success) {
+                    modalMessage.textContent = `Successfully connected with ${walletName}! You can now proceed.`;
+                    if(connectWalletBtn) connectWalletBtn.textContent = 'Wallet Connected';
+                    modalActionButtons.innerHTML = `<p style="color: #14f195;">Connected!</p>`;
+                     setTimeout(closeModal, 2000);
+                } else {
+                    modalMessage.textContent = `Failed to connect with ${walletName}. Please try again or ensure your wallet is available.`;
+                     modalActionButtons.innerHTML = `
+                        <button class="btn-primary" style="margin: 5px;" onclick="simulateConnection('Phantom')">Retry Phantom</button>
+                        <button class="btn-primary" style="margin: 5px;" onclick="simulateConnection('Solflare')">Retry Solflare</button>`;
+                }
+            }, 1500);
+        }
+
+        // Function to show mint confirmation modal
+        function showMintModal(nftName, nftPrice) {
+            openModal('Confirm NFT Mint', `You are about to mint the "${nftName}" NFT.`, true, nftName, nftPrice);
+        }
+
+        // Simulate NFT Minting
+        function simulateMint(nftName) {
+            modalMessage.textContent = `Minting ${nftName}... Please approve the transaction in your wallet.`;
+            modalActionButtons.innerHTML = `<p>Processing...</p>`;
+            mintDetails.style.display = 'none'; // Hide details during processing
+
+            setTimeout(() => {
+                const success = Math.random() > 0.1; // 90% success rate for minting
+                if (success) {
+                    modalTitle.textContent = 'Mint Successful!';
+                    modalMessage.textContent = `Congratulations! You have successfully minted the ${nftName} NFT. It should appear in your wallet shortly.`;
+                    modalActionButtons.innerHTML = `<button class="btn-primary" onclick="closeModal()">Awesome!</button>`;
+                } else {
+                    modalTitle.textContent = 'Mint Failed';
+                    modalMessage.textContent = `There was an error minting ${nftName}. Please check your wallet, ensure you have enough SOL for gas, and try again.`;
+                    // Offer to try again or close
+                    modalActionButtons.innerHTML = `
+                        <button class="btn-primary" style="margin-right: 10px;" onclick="showMintModal('${nftName}', 'its price')">Try Again</button>
+                        <button class="btn-primary" onclick="closeModal()">Close</button>`;
+                }
+            }, 2500);
+        }
+
+
+        // Calculate KREW based on SOL input
+        const solAmountInput = document.getElementById('solAmount');
+        const krewAmountInput = document.getElementById('krewAmount');
+        const KREW_PER_SOL = 20; // 1 SOL = 20 KREW (Example: 1 KREW = 0.05 SOL)
+
+        function calculateKrew() {
+            if (solAmountInput && krewAmountInput) {
+                const sol = parseFloat(solAmountInput.value);
+                if (!isNaN(sol) && sol > 0) {
+                    krewAmountInput.value = (sol * KREW_PER_SOL).toFixed(2);
+                } else {
+                    krewAmountInput.value = '';
+                }
+            }
+        }
+        if(solAmountInput) {
+            solAmountInput.addEventListener('input', calculateKrew);
+        }
+
+        // Add onerror handlers for NFT images to show placeholder text
+        document.querySelectorAll('.nft-image').forEach(imgContainer => {
+            const imgURL = imgContainer.style.backgroundImage.slice(5, -2); // Extracts URL from "url('...')"
+            if (imgURL && imgURL !== 'none') {
+                const image = new Image();
+                image.src = imgURL;
+                image.onerror = () => {
+                    const placeholder = imgContainer.querySelector('.nft-image-placeholder');
+                    if(placeholder) {
+                        const nftName = imgContainer.title || "Krew NFT"; 
+                        placeholder.textContent = nftName.replace(" NFT", ""); 
+                        placeholder.style.display = 'flex';
+                        placeholder.style.alignItems = 'center';
+                        placeholder.style.justifyContent = 'center';
+                        placeholder.style.height = '100%';
+                        placeholder.style.textAlign = 'center';
+                        placeholder.style.padding = '10px'; /* Added padding for better text visibility */
+                    }
+                    // Fallback gradient if image fails, keeping it distinct but not overly plain
+                    imgContainer.style.backgroundImage = 'linear-gradient(45deg, #2c3e50, #34495e)'; 
+                };
+            }
+        });
+
+    </script>
+</body>
+</html>
